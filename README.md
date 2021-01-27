@@ -26,7 +26,7 @@ Now here is a step by step guide for how to prepare the setup for our project.
 
 Today, you'll be using repl.it to write code. It is an online, instant development environment to learn, build, collaborate, and host your project. So you don’t have to waste time while setting up a development environment.
 
-[Sign up and then create a repl here.](https://repl.it/signup)
+- [Sign up and then create a repl here.](https://repl.it/signup)
 
 ![repl website](https://cloud-73h0sldam.vercel.app/0screenshot_2020-12-25_at_23.03.53.png)
 
@@ -139,9 +139,36 @@ plt.show()
 `plt.show` opens interactive windows that display your figure
 
 ---
+**Source Code**
+
+```python
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
 
 
 
+DataFrame = pd.read_csv('mountain.csv')
+
+DataFrame = DataFrame.unstack()
+
+DataFrame = DataFrame.reset_index()
+
+DataFrame.columns = ['X', 'Y', 'Z']
+
+DataFrame['X'] = pd.Categorical(DataFrame['X'])
+
+DataFrame['X'] = DataFrame['X'].cat.codes
+
+fig = plt.figure()
+
+ax = fig.gca(projection='3d')
+
+ax.plot_trisurf(DataFrame['X'], DataFrame['Y'], DataFrame['Z'], cmap=plt.cm.jet)
+
+plt.show()
+```
 
 ![Demo](https://cloud-a08hob7s0.vercel.app/0workshop1.gif)
 
@@ -164,6 +191,6 @@ There are so many exciting things you can make now. For example, visualize datas
 [Code](https://repl.it/@ShiveshSingh/Surface-Plot-3D#main.py)
 
 
-- Example 3, using Loops, List, and Sin function to make the contour plot.  
+- Example 3, using Loops, List, and Sin function to make the contour plot.	
 [Demo img](https://cloud-iwpkargvc.vercel.app/1screenshot_2021-01-10_at_15.25.30.png),
 [Code](https://repl.it/@ShiveshSingh/3D-Contour-Plot#main.py)
