@@ -26,7 +26,7 @@ Now here is a step by step guide for how to prepare the setup for our project.
 
 Today, you'll be using repl.it to write code. It is an online, instant development environment to learn, build, collaborate, and host your project. So you don’t have to waste time while setting up a development environment.
 
-- [Sign up and then create a repl here.](https://repl.it/signup)
+- [Click here to Sign up](https://repl.it/signup)
 
 ![repl website](https://cloud-73h0sldam.vercel.app/0screenshot_2020-12-25_at_23.03.53.png)
 
@@ -106,9 +106,9 @@ When you concatenate, sort, join or do some rearrangements with your `DataFrame`
 ```python
 DataFrame.columns = ['X', 'Y', 'Z']
 ```
-Our CSV contains three columns without names, so you need to assign names to columns, and using DataFrame.columns assign the first column to be X, the second column to be Y, and the third column to be Z. I know you might be wondering what these are, these are coordinates of the point of the Mountain like longitude, latitude, and altitude. 
+Your `DataFrame` contains three columns without labels, so you need to assign labels to columns, and using `DataFrame.columns` assign the first column to be X, the second column to be Y, and the third column to be Z. I know you might be wondering what these are, these are coordinates of the point of the Mountain like longitude, latitude, and altitude. 
 
-Fun Fact: We got exactly 552 coordinates
+Fun Fact: We got exactly 552 coordinates.
 
 ```python
 DataFrame['X'] = pd.Categorical(DataFrame['X'])
@@ -130,7 +130,7 @@ To create a figure window You can use this function `plt.figure()`, even we can 
 ```python
 ax = fig.gca(projection='3d')
 ```
-`fig.gca()` with argument `projection=`3d`` returns the three-dimensional axes associated with the figure window and stored in the `ax` variable. 
+`fig.gca()` with argument as `projection=`3d`` returns the three-dimensional axes associated with the figure window and stored in the `ax` variable. 
 
 ```python
 ax.plot_trisurf(DataFrame['X'], DataFrame['Y'], DataFrame['Z'], cmap=plt.cm.jet, linewidth=0.2)
@@ -213,6 +213,6 @@ There are so many exciting things you can make now. For example, visualize datas
 [Code](https://repl.it/@ShiveshSingh/Surface-Plot-3D#main.py)
 
 
-- Example 3, using Loops, List, and Sin function to make the contour plot.  
+- Example 3, using Loops, List, and Sin function to make the contour plot.	
 [Demo img](https://cloud-iwpkargvc.vercel.app/1screenshot_2021-01-10_at_15.25.30.png),
 [Code](https://repl.it/@ShiveshSingh/3D-Contour-Plot#main.py)
