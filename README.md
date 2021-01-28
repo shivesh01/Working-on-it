@@ -106,19 +106,20 @@ When you concatenate, sort, join or do some rearrangements with your `DataFrame`
 ```python
 DataFrame.columns = ['X', 'Y', 'Z']
 ```
-Our CSV contains three columns without names, so you need to assign names to columns, and using DataFrame.columns assign the first column to be X, the second column to be Y, and the third column to be Z I know you might be wondering what these are, these are coordinates of the point of the Mountain like longitude, latitude, and altitude. 
+Our CSV contains three columns without names, so you need to assign names to columns, and using DataFrame.columns assign the first column to be X, the second column to be Y, and the third column to be Z. I know you might be wondering what these are, these are coordinates of the point of the Mountain like longitude, latitude, and altitude. 
 
 Fun Fact: We got exactly 552 coordinates
 
 ```python
 DataFrame['X'] = pd.Categorical(DataFrame['X'])
 ```
-`Categorical` is a `pandas` data type, using for the unique categorization of the categories. In short, you are changing the data. 
+`Categorical` is a `pandas` data-type and used to save memory space and speed up computation. you can convert using syntax `pd.Categorical()` with parameter `DataFrame['X'] `
 
 ```python
 DataFrame['X'] = DataFrame['X'].cat.codes
 ```
-By using `cat.codes` we get unique values for each value of `X` in  an array even if the value is none then also returns a unique numeric value.
+By using `cat.codes` we get unique integer values for each value of `X` in an array in the position of the actual values even if the value is none then also returns a unique numeric value.  
+Suppose your data contains a column named Gender with 1000 rows which have only 2 types of values as Male and Female(both values are just repeated in rows). But for a computer there are 1000 unique values so it will treat every value as unique. To save memory we specify the similar set of values as category so that computers don't allocate memory every time it encounters that value, instead of that it will just assign a reference to the value.
 
 ```python
 fig = plt.figure(figsize=(6, 8))
@@ -137,6 +138,16 @@ ax.plot_trisurf(DataFrame['X'], DataFrame['Y'], DataFrame['Z'], cmap=plt.cm.jet,
 
 You're almost there! creating a three-dimensional plot with plotting function `ax.plot_trisurf` takes in `x`, `y,` and `z` values, cmap, and linewidth. where `cmap` defines the colormap of the plot, and linewidth makes the curves smoother.
 `cmap=plt.cm.jet` used jet colormap, even you can use another colormap from below list, you need to replace the `jet` with colormap you want to use.
+
+![colormap list](https://cloud-hppbp7hy7.vercel.app/0colormap.gif)
+
+```python
+plt.title("San Mount Bruno")
+plt.xlabel("x axis")
+plt.ylabel("y axis")
+```
+
+`plt.title` function will add a title to Your plot, `plot.xlabel` and `plot.ylabel` adds labels to the x and y-axis of the plot.
 
 ```python
 plt.show()
@@ -173,10 +184,15 @@ ax = fig.gca(projection='3d')
 
 ax.plot_trisurf(DataFrame['X'], DataFrame['Y'], DataFrame['Z'], cmap=plt.cm.jet, linewidth=0.2)
 
+plt.title("San Mount Bruno")
+plt.xlabel("x axis")
+plt.ylabel("y axis")
+
+
 plt.show()
 ```
 
-![Demo](https://cloud-a08hob7s0.vercel.app/0workshop1.gif)
+![Demo](https://cloud-ko9v4kpdg.vercel.app/0ezgif.com-gif-maker__1_.gif)
 
 You have completed the workshop, share with everyone, and Congratulations!!!
 
