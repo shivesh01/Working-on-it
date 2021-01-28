@@ -213,6 +213,6 @@ There are so many exciting things you can make now. For example, visualize datas
 [Code](https://repl.it/@ShiveshSingh/Surface-Plot-3D#main.py)
 
 
-- Example 3, using Loops, List, and Sin function to make the contour plot.	
+- Example 3, using Loops, List, and Sin function to make the contour plot.  
 [Demo img](https://cloud-iwpkargvc.vercel.app/1screenshot_2021-01-10_at_15.25.30.png),
 [Code](https://repl.it/@ShiveshSingh/3D-Contour-Plot#main.py)
